@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # coding: utf-8
-from IPython.core.display_functions import display
 from data.cods.google import get_dfs, upload_dataframe_to_gcs, load_data_from_gcs
 import pandas as pd
 from data.cods.df_tra.checker import *
@@ -40,7 +39,6 @@ def main(lista_dfs):
 
     df_eita.to_csv("error.csv", index=False)
 
-    display(df_return)
     upload_dataframe_to_gcs('uat-shein-scraper', df_final, 'df_final_shein_map.csv', prefix=None,
                             project_id='shopee-brazil-seller')
 
